@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .img_info{
+      height: 300px;
+      width: 400px;
+      margin: 25px;
+    }
+    .p_info{
+        text-align: justify;
+        margin-left:50px;
+        height: 25px;
+    }
+    h1{
+      text-align: center;
+    }
+  </style>
+<h1>{% block title %} Le total de don collecter {{ post }} {% endblock %}</h1>
+<div class="card-group">
+  <div class="card">
+    <img src="{{url_for('static', filename='info1.jpg')}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Faire un don IFI</h5>
+      <p class="card-text">Faire un don au WWF permet de réduire votre IFI (Impôt sur la Fortune Immobilière) tout en agissant pour lutter contre la dégradation des écosystèmes. Votre soutien est essentiel pour  préserver ensemble la biodiversité.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{url_for('static', filename='info2.jpg')}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Transmettre son patrimoine</h5>
+      <p class="card-text">Soutenir le WWF France n’est pas qu’une histoire de patrimoine matériel, c’est aussi mêler le passé et l’avenir. Le WWF agit quotidiennement en France et dans le monde entier, grâce au soutien de ses donateurs et testateurs.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{{url_for('static', filename='info3.jpg')}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Adopter un animal</h5>
+      <p class="card-text">Plus qu'un simple achat, l’adoption symbolique d’animaux vous permet de contribuer aux combats que mène le WWF à travers le monde. Chaque achat est un geste de plus pour aider nos programmes de conservation.</p>
+    </div>
+  </div>
+</div>
+
+
+{% for i in result %}
+<div class="card w-75">
+  <div class="card-body">
+    <h5 class="card-title">{{ i["nom"] }} {{ i["prenom"] }}</h5>
+    <p class="card-text">{{ i["mail"]}}</p>
+    <p class="card-text">{{ i["don"]}} €</p>
+    <a href="https://www.google.com/intl/fr/gmail/about/" class="btn btn-primary">Contacter</a>
+  </div>
+</div>
+{% endfor %}
+
+
+
+
+{% endblock %}

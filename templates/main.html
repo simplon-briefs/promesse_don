@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    h1{
+        text-align: center;
+        background: url("{{url_for('static', filename='main.jpg')}}");
+        height: 1000px;
+        width: 100%;
+        line-height: 500px;
+        font-size: 150px;
+        color:white;
+    }
+</style>
+
+
+
+
+<h1>{% block title %} NOS FORÊTS DISPARAISSENT {% endblock %}</h1>
+{% endblock %}
